@@ -1,50 +1,57 @@
-# Fundamentals of Deep Learning by NVIDIA
+# Deep Learning Fundamentals — NVIDIA DLI + PyTorch practice
 
-This repository contains my notes, assignments, and projects from the **Fundamentals of Deep Learning** course offered by NVIDIA. This course provides a comprehensive introduction to the core concepts and practices in deep learning, aiming to equip participants with the foundational skills needed to develop and apply deep learning models effectively.
+My working notebooks from the **NVIDIA Deep Learning Institute "Fundamentals of Deep Learning"** course
+(certificate of competency, December 2025) and the PyTorch practice I did alongside it.
 
-## Course Overview
+The DLI notebooks follow the course labs; the `0x_pytorch_*` notebooks follow the open
+[*Learn PyTorch for Deep Learning*](https://github.com/mrdbourke/pytorch-deep-learning) curriculum
+(Zero to Mastery, Daniel Bourke), which I used to rebuild the same ideas in plain PyTorch.
+Course material belongs to its authors; the code cells and experiments are mine.
 
-The **Fundamentals of Deep Learning** course covers:
+## NVIDIA DLI — Fundamentals of Deep Learning
 
-1. **Introduction to Deep Learning:**
-   - Understanding the basics of neural networks.
-   - Learning about different types of layers and activation functions.
-   - Comprehending the process of training and optimizing neural networks.
+| Notebook | Topic |
+|---|---|
+| `00_jupyterlab.ipynb` | Lab environment |
+| `01_mnist.ipynb` | First image classifier on MNIST: data loading, a fully connected network, training loop |
+| `02_asl.ipynb` | American Sign Language letters with a dense network — and why it overfits |
+| `03_asl_cnn.ipynb` | The same task with a convolutional network |
+| `04a_asl_augmentation.ipynb` | Data augmentation to close the train/validation gap |
+| `04b_asl_predictions.ipynb` | Deploying the trained model on new images |
+| `05a_doggy_door.ipynb` | Transfer learning with a pretrained VGG16 (ImageNet) |
+| `05b_presidential_doggy_door.ipynb` | Fine-tuning a pretrained model on a small custom dataset |
+| `06_nlp.ipynb` | Introduction to NLP with a pretrained language model |
 
-2. **Deep Learning Techniques:**
-   - Exploring Convolutional Neural Networks (CNNs) for image recognition.
-   - Understanding Recurrent Neural Networks (RNNs) and Long Short-Term Memory (LSTM) networks for sequence data.
-   - Learning about Generative Adversarial Networks (GANs) for generating new data.
+## PyTorch practice
 
-3. **Advanced Topics:**
-   - Transfer Learning: Leveraging pre-trained models for new tasks.
-   - Data Augmentation: Improving model robustness and performance.
-   - Fine-Tuning: Adapting models to specific datasets.
+| Notebook | Topic |
+|---|---|
+| `00_pytorch_fundamentals.ipynb` | Tensors, shapes, devices |
+| `01_pytorch_workflow.ipynb` | Data → model → loss → optimiser → evaluation loop |
+| `02_pytorch_classification.ipynb` | Binary and multi-class classification, non-linearity |
+| `03_pytorch_computer_vision.ipynb` | FashionMNIST, CNNs, confusion matrix |
+| `04_pytorch_custom_datasets.ipynb` | Custom `Dataset` / `DataLoader`, augmentation |
+| `05_pytorch_going_modular.md` | Turning notebook code into reusable modules |
+| `06_pytorch_transfer_learning.ipynb` | Transfer learning with `torchvision` models |
+| `07_pytorch_experiment_tracking.ipynb` | Tracking experiments with TensorBoard |
+| `08_pytorch_paper_replicating.ipynb` | Re-implementing a Vision Transformer from the paper |
+| `09_pytorch_model_deployment.ipynb` | Model size / speed trade-offs and a demo app |
 
-4. **Practical Implementation:**
-   - Hands-on projects and assignments using popular deep learning frameworks such as TensorFlow and PyTorch.
-   - Implementing various deep learning architectures to solve real-world problems.
-   - Evaluating and fine-tuning models to achieve optimal performance.
+`utils.py` holds shared helpers; `model.pth` is a small trained checkpoint from the exercises.
 
-## Repository Structure
+## Running
 
-- **Notes:** Summarized concepts and key takeaways from each module.
-- **Assignments:** Completed assignments with code and explanations.
-- **Projects:** Practical projects demonstrating the application of deep learning techniques.
-- **Resources:** Additional materials, such as research papers, articles, and helpful links.
+```bash
+git clone https://github.com/furkanselimozkan07/nvidia-deep-learning.git
+cd nvidia-deep-learning
+pip install torch torchvision matplotlib jupyterlab
+jupyter lab
+```
 
-## Getting Started
+The DLI notebooks were written for NVIDIA's hosted GPU environment, so some dataset paths
+need adjusting to run locally.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/RagnarokFate/Fundamentals-of-Deep-Learning.git
-   cd fundamentals-of-deep-learning
-   ```
-2. **Install dependencies:**
-Follow the instructions provided in each module or assignment folder for installing the required dependencies.
+## Where this went next
 
-3. **Explore and Learn:** 
-Navigate through the notes, assignments, and projects to understand the deep learning concepts and their practical implementations.
-
-## Gratitude 
-This course and the materials in this repository are based on the Fundamentals of Deep Learning course by NVIDIA. Special thanks to the NVIDIA Deep Learning Institute for providing such a valuable learning resource.
+I use these foundations in UAV perception work — real-time YOLO detection, geolocation and
+payload delivery: [uav-perception-payload](https://github.com/furkanselimozkan07/uav-perception-payload).
